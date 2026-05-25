@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>HTML</title>
+  
+  <!-- HTML -->
+  
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class=titl>Bank PNB & SBI using interface </div>
+    <div class=write><pre><code>interface BankData {
+    float getInterestRate();    
+}
+class SBI implements BankData{
+    float interestRate=6.5f;
+    String branchName, branchCode;
+    SBI(String branchName, String branchCode){
+        this.branchName=branchName;
+        this.branchCode=branchCode;
+    }
+    public float getInterestRate(){
+        return interestRate;
+    }
+    void display(){
+        System.out.println("Bank Name: SBI");
+        System.out.println("Branch Name: "+branchName);
+        System.out.println("Branch Code: "+branchCode);
+        System.out.println("Interest Rate: "+getInterestRate()+"%");
+    }
+}class PNB implements BankData{
+    float interestRate=7.5f;
+    String branchName, branchCode;
+    PNB(String branchName, String branchCode){
+        this.branchName=branchName;
+        this.branchCode=branchCode;
+    }
+    public float getInterestRate(){
+        return interestRate;
+    }
+    void display(){
+        System.out.println("Bank Name: PNB");
+        System.out.println("Branch Name: "+branchName);
+        System.out.println("Branch Code: "+branchCode);
+        System.out.println("Interest Rate: "+getInterestRate()+"%");
+    }
+}
+public class Banks {
+    public static void main(String[] args) {
+        SBI n1 = new SBI("Barrackpore","BKP2026SBI");
+        PNB n2 = new PNB("Serampore", "SRP2026PNB");
+        n1.display();
+        n2.display();
+    }
+}</code>
+</pre></div>
+    <div class=titl>Divide by 0 exception</div>
+    <div><pre><code>public class DivByZeroExcShow{
+  public static void main(String args[]){
+    try{
+      int a=10, b=0;
+      int c=a/b;
+    } catch(ArithmeticException obj){
+      System.out.println("Error: "+obj);
+    }
+  }
+}</code></pre></div>
+    <div class=titl>Duplicate number exception</div>
+    <div class=write><pre><code>import java.util.*;
+class DuplicateNumberException extends Exception{
+  String val;
+  DuplicateNumberException(String val){
+    this.val=val;
+  }
+  public String toString(){
+    return val;
+  }
+}
+public class ExcFromArray{
+  public static void main(String args[]){
+    Scanner sc = new Scanner(System.in);
+    int n;
+    System.out.print("Enter size of Array: ");
+    n=sc.nextInt();
+    int arr[] = new int[n];
+    System.out.print("Enter Array Elements: ");
+    for(int i=0;i&lt;n;i++){
+      arr[i]=sc.nextInt();
+    }
+    try{
+      for(int i=0; i&lt;arr.length; i++){
+        for(int j=i+1; j&lt;arr.length; j++){
+          if(arr[i]==arr[j]){
+            throw new DuplicateNumberException("Duplicate number detected");
+          }
+        }
+      }
+    } catch(DuplicateNumberException obj){
+      System.out.println("Error: "+obj);
+    }
+  }
+}</code></pre>
+  <div class=titl>Array Reverse</div>
+      <div class=write><pre><code>
+          import java.util.Scanner;
+
+public class PrintRevArray {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter array size: ");
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        System.out.print("Enter array elements: ");
+        for(int i=0; i&lt;n; i++){
+            arr[i]=sc.nextInt();
+        }
+        System.out.print("Array elements in reverse order:");
+        for (int i = arr.length - 1; i >=0; i--) {
+            System.out.print(" "+arr[i]);
+        }
+    }
+}
+
+</code></pre></div>
+    <div class=titl>UnderAge Exception</div>
+    <div class=write><pre><code>
+        import java.util.Scanner;
+class UnderAge extends Exception{
+    String msg;
+    UnderAge(String msg){
+        this.msg=msg;
+    }
+    public String toString(){
+        return "Error: "+msg;
+    }
+}
+class ExceptionDemo{
+  void test(int n) throws UnderAge{
+    if (n>=18) {
+      System.out.println("You are adult");
+    } else {
+      throw new UnderAge("You are underage");
+    }
+  }
+}
+public class UnderAgeDemo {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter your age: ");
+        int n = sc.nextInt();
+        ExceptionDemo age = new ExceptionDemo();
+        try {
+            age.test(n);
+        } catch (UnderAge obj) {
+            System.out.println(obj);
+        }
+    }
+}
+    </code></pre></div>
+ 
+  <script src="main.js"></script>
+</body>
+</html>
