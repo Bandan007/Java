@@ -11,9 +11,44 @@
 </head>
 
 <body>
-  
+  <div class="copy-navbar">
+
+    <button class="copy-button" data-copy="fcfs">
+    FCFS
+    </button>
+
+    <button class="copy-button" data-copy="sjf">
+        SJF
+    </button>
+
+    <button class="copy-button" data-copy="rr">
+        RR
+    </button>
+
+    <button class="copy-button" data-copy="df">
+    Dining Phil
+    </button>
+ <button class="copy-button" data-copy="pc">
+        Prod Cons
+    </button>
+    <button class="copy-button" data-copy="page">
+        Paging
+    </button>
+    <button class="copy-button" data-copy="seg">
+        Segmentation 
+    </button>
+    <button class="copy-button" data-copy="bf">
+        Best Fit
+    </button>
+    <button class="copy-button" data-copy="ff">
+        First Fit
+    </button>
+    <button class="copy-button" data-copy="fifo">
+        FIFO
+    </button>
+</div>
   <div class=titl>FCFS</div>
-    <div class=copy-box><code><pre>#include &lt;stdio.h&gt;
+    <div class=copy-box id=fcfs><code><pre>#include &lt;stdio.h&gt;
 
 int main() {
     int n, i;
@@ -65,7 +100,7 @@ int main() {
 <button class="copy-btn">
 Copy</button></div>
 <div class=titl>SJF</div>
-    <div class=copy-box><code><pre>
+    <div class=copy-box id=sjf><code><pre>
 #include &lt;stdio.h&gt;
 
 int main() {
@@ -133,7 +168,7 @@ int main() {
 <button class="copy-btn">
 Copy</button></div>
   <div class=titl>Round Robbin</div>
-    <div class=copy-box><code><pre>#include &lt;stdio.h&gt;
+    <div class=copy-box id=rr><code><pre>#include &lt;stdio.h&gt;
 int main() {
     int n, i, time = 0, remain, tq;
     printf("Enter number of processes: ");
@@ -202,7 +237,7 @@ int main() {
 <button class="copy-btn">
 Copy</button></div>
   <div class=titl>Dining Philosopher</div>
-    <div class=copy-box><code><pre>#include &lt;stdio.h&gt;
+    <div class=copy-box id=df><code><pre>#include &lt;stdio.h&gt;
 #include &lt;pthread.h&gt;
 #include &lt;semaphore.h&gt;
 #include &lt;unistd.h&gt;
@@ -254,7 +289,7 @@ int main() {
 <button class="copy-btn">
 Copy</button></div>
   <div class=titl>Producer Consumer</div>
-    <div class=copy-box><code><pre>
+    <div class=copy-box id=pc><code><pre>
         #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;pthread.h&gt;
@@ -315,7 +350,7 @@ int main() {
 <button class="copy-btn">
 Copy</button></div>
 <div class=titl>Paging</div>
-    <div class=copy-box><code><pre>#include &lt;stdio.h&gt;
+    <div class=copy-box id=page><code><pre>#include &lt;stdio.h&gt;
 int main() {
     int pageTable[20];
     int numPages, pageSize;
@@ -358,7 +393,7 @@ int main() {
 <button class="copy-btn">
 Copy</button></div>
 <div class=titl>Segmentation</div>
-    <div class=copy-box><code><pre>
+    <div class=copy-box id=seg><code><pre>
 #include &lt;stdio.h&gt;
 
 struct Segment {
@@ -395,7 +430,7 @@ int main() {
 <button class="copy-btn">
 Copy</button></div>
   <div class=titl>Best Fit</div>
-    <div class=copy-box><code><pre>#include &lt;stdio.h&gt;
+    <div class=copy-box id=bf><code><pre>#include &lt;stdio.h&gt;
 int main() {
     int nb, np, i, j;
 
@@ -456,7 +491,7 @@ int main() {
 <button class="copy-btn">
 Copy</button></div>
   <div class=titl>First Fit</div>
-    <div class=copy-box><code><pre>
+    <div class=copy-box id=ff><code><pre>
 #include &lt;stdio.h&gt;
 int main() {
     int nb, np, i, j;
@@ -511,7 +546,7 @@ int main() {
 <button class="copy-btn">
 Copy</button></div>
   <div class=titl>FIFO</div>
-    <div class=copy-box><code><pre>#include &lt;stdio.h&gt;
+    <div class=copy-box id=fifo><code><pre>#include &lt;stdio.h&gt;
 int main() {
     int j,i,frames, pages;
     
