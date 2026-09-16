@@ -4,32 +4,410 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Rahul Gandhi</title>
-  
+  <title>Joi Rahul Gandhi</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<div class="photo-frame">
-    <img src="rahul-gandhi-winking-at-the-parliament.jpg" alt="Photo" loading="lazy">
+  <div class="copy-navbar">
+    <button class="copy-button" data-copy="q1">File ReadWrite</button>
+    <button class="copy-button" data-copy="q2">CSV Processing</button>
+    <button class="copy-button" data-copy="q3">Copy File</button>
+    <button class="copy-button" data-copy="q4">Count Vowels</button>
+    <button class="copy-button" data-copy="q5">Add Lines</button>
+    <button class="copy-button" data-copy="q6">Decimal Binary</button>
+    <button class="copy-button" data-copy="q7">GCD Calculator</button>
+    <button class="copy-button" data-copy="q8">LCM Calculator</button>
+    <button class="copy-button" data-copy="q9">Krishnamurthy Number</button>
+    <button class="copy-button" data-copy="q11">Armstrong Number</button>
+    <button class="copy-button" data-copy="q12">Palindrome Check</button>
+    <button class="copy-button" data-copy="q13">Fibonacci Series</button>
+    <button class="copy-button" data-copy="q14">Prime Range</button>
+    <button class="copy-button" data-copy="q15">Prime Check</button>
+    <button class="copy-button" data-copy="q16">File Operations</button>
+  </div>
 
-    <!-- Hearts -->
+  <!-- Question 1 -->
+  <div class="titl">File ReadWrite</div>
+  <div class="copy-box" id="q1">
+    <code><pre># Step 1: Create and write to the file
+file = open("greeting.txt", "w")
+file.write("Hello, welcome to Python file handling!")
+file.close()
+
+# Step 2: Open and read the file
+file = open("greeting.txt", "r")
+content = file.read()
+print(content)
+file.close()</pre></code>
+    <button class="copy-btn">Copy</button>
+  </div>
+
+  <!-- Question 2 -->
+  <div class="titl">CSV Processing</div>
+  <div class="copy-box" id="q2">
+    <code><pre>import csv
+
+# Step 1: Create the CSV file and write student records
+with open("students.csv", "w", newline="") as file:
+    writer = csv.writer(file)
+
+    # Write column headings
+    writer.writerow(["StudentID", "Name", "Marks"])
+
+    # Write student records
+    writer.writerow(["S001", "Rahul", 82])
+    writer.writerow(["S002", "Priya", 68])
+    writer.writerow(["S003", "Amit", 91])
+    writer.writerow(["S004", "Sneha", 74])
+    writer.writerow(["S005", "Rohan", 79])
+
+# Step 2: Read the CSV file and process the records
+total_marks = 0
+student_count = 0
+
+print("Students who scored more than 75 marks:")
+print("-----------------------------------------")
+
+with open("students.csv", "r", newline="") as file:
+    reader = csv.DictReader(file)
+
+    for student in reader:
+        marks = int(student["Marks"])
+
+        # Calculate total marks
+        total_marks += marks
+        student_count += 1
+
+        # Display students scoring more than 75
+        if marks > 75:
+            print(student["Name"])
+
+# Step 3: Calculate and display the average marks
+average_marks = total_marks / student_count
+
+print("-----------------------------------------")
+print("Average Marks:", average_marks)</pre></code>
+    <button class="copy-btn">Copy</button>
+  </div>
+
+  <!-- Question 3 -->
+  <div class="titl">Copy File</div>
+  <div class="copy-box" id="q3">
+    <code><pre># Take source and destination filenames as input
+source_file = input("Enter the source filename: ")
+destination_file = input("Enter the destination filename: ")
+
+try:
+    # Open the source file in read mode
+    with open(source_file, "r") as source:
+        content = source.read()
+
+    # Open the destination file in write mode
+    with open(destination_file, "w") as destination:
+        destination.write(content)
+
+    print("File copied successfully.")
+    print("Source file:", source_file)
+    print("Destination file:", destination_file)
+
+except FileNotFoundError:
+    print("Error: The source file was not found.")
+    print("Please check the filename and try again.")
+
+except PermissionError:
+    print("Error: Permission denied while accessing the file.")
+
+except Exception as e:
+    print("An unexpected error occurred:", e)</pre></code>
+    <button class="copy-btn">Copy</button>
+  </div>
+
+  <!-- Question 4 -->
+  <div class="titl">Count Vowels</div>
+  <div class="copy-box" id="q4">
+    <code><pre># Open the existing file in read mode
+with open("paragraph.txt", "r") as file:
+    content = file.read()
+
+# Define vowels
+vowels = "aeiouAEIOU"
+
+vowel_count = 0
+consonant_count = 0
+
+# Examine each character in the file
+for character in content:
+    if character.isalpha():
+        if character in vowels:
+            vowel_count += 1
+        else:
+            consonant_count += 1
+
+# Display the results
+print("Total number of vowels:", vowel_count)
+print("Total number of consonants:", consonant_count)</pre></code>
+    <button class="copy-btn">Copy</button>
+  </div>
+
+  <!-- Question 5 -->
+  <div class="titl">Add Lines</div>
+  <div class="copy-box" id="q5">
+    <code><pre># Open the source file in read mode
+source = open("original.txt", "r")
+
+# Open the destination file in write mode
+destination = open("numbered.txt", "w")
+
+# Read and process the source file line by line
+line_number = 1
+
+for line in source:
+    # Remove the newline character before adding the line number
+    line = line.rstrip("\n")
+    destination.write("Line " + str(line_number) + ": " + line + "\n")
+    line_number += 1
+
+# Close both files
+source.close()
+destination.close()
+
+# Display success message
+print("File copied successfully")</pre></code>
+    <button class="copy-btn">Copy</button>
+  </div>
+
+  <!-- Question 6 -->
+  <div class="titl">Decimal Binary</div>
+  <div class="copy-box" id="q6">
+    <code><pre>num = int(input("Enter a decimal number: "))
+binary = ""
+
+if num == 0:
+    binary = "0"
+else:
+    while num > 0:
+        rem = num % 2
+        binary = str(rem) + binary
+        num = num // 2
+
+print("Binary equivalent is", binary)</pre></code>
+    <button class="copy-btn">Copy</button>
+  </div>
+
+  <!-- Question 7 -->
+  <div class="titl">GCD Calculator</div>
+  <div class="copy-box" id="q7">
+    <code><pre>a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+
+while b != 0:
+    temp = b
+    b = a % b
+    a = temp
+
+print("GCD is", a)</pre></code>
+    <button class="copy-btn">Copy</button>
+  </div>
+
+  <!-- Question 8 -->
+  <div class="titl">LCM Calculator</div>
+  <div class="copy-box" id="q8">
+    <code><pre>a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+
+max_num = max(a, b)
+
+while True:
+    if max_num % a == 0 and max_num % b == 0:
+        print("LCM is", max_num)
+        break
+    max_num = max_num + 1</pre></code>
+    <button class="copy-btn">Copy</button>
+  </div>
+
+  <!-- Question 9 -->
+  <div class="titl">Krishnamurthy Number</div>
+  <div class="copy-box" id="q9">
+    <code><pre>num = int(input("Enter a number: "))
+temp = num
+sum = 0
+
+while temp > 0:
+    digit = temp % 10
+    fact = 1
+    for i in range(1, digit + 1):
+        fact = fact * i
+    sum = sum + fact
+    temp = temp // 10
+
+if num == sum:
+    print("Krishnamurthy Number")
+else:
+    print("Not Krishnamurthy")</pre></code>
+    <button class="copy-btn">Copy</button>
+  </div>
+
+  <!-- Question 11 -->
+  <div class="titl">Armstrong Number</div>
+  <div class="copy-box" id="q11">
+    <code><pre>num = int(input("Enter a number: "))
+temp = num
+sum = 0
+
+while temp > 0:
+    digit = temp % 10
+    sum = sum + digit ** 3
+    temp = temp // 10
+
+if num == sum:
+    print("Armstrong Number")
+else:
+    print("Not Armstrong")</pre></code>
+    <button class="copy-btn">Copy</button>
+  </div>
+
+  <!-- Question 12 -->
+  <div class="titl">Palindrome Check</div>
+  <div class="copy-box" id="q12">
+    <code><pre>num = int(input("Enter a number: "))
+temp = num
+rev = 0
+
+while temp > 0:
+    digit = temp % 10
+    rev = rev * 10 + digit
+    temp = temp // 10
+
+if num == rev:
+    print("Palindrome Number")
+else:
+    print("Not Palindrome")</pre></code>
+    <button class="copy-btn">Copy</button>
+  </div>
+
+  <!-- Question 13 -->
+  <div class="titl">Fibonacci Series</div>
+  <div class="copy-box" id="q13">
+    <code><pre>n = int(input("Enter number of terms: "))
+a = 0
+b = 1
+
+print("Fibonacci Series:")
+for i in range(n):
+    print(a, end=" ")
+    c = a + b
+    a = b
+    b = c</pre></code>
+    <button class="copy-btn">Copy</button>
+  </div>
+
+  <!-- Question 14 -->
+  <div class="titl">Prime Range</div>
+  <div class="copy-box" id="q14">
+    <code><pre>start = int(input("Enter start: "))
+end = int(input("Enter end: "))
+
+print("Prime numbers between", start, "and", end, "are:")
+for num in range(start, end + 1):
+    if num > 1:
+        for i in range(2, num):
+            if num % i == 0:
+                break
+        else:
+            print(num, end=" ")</pre></code>
+    <button class="copy-btn">Copy</button>
+  </div>
+
+  <!-- Question 15 -->
+  <div class="titl">Prime Check</div>
+  <div class="copy-box" id="q15">
+    <code><pre>num = int(input("Enter a number: "))
+flag = 0
+
+if num > 1:
+    for i in range(2, num):
+        if num % i == 0:
+            flag = 1
+            break
+    
+    if flag == 0:
+        print("Prime Number")
+    else:
+        print("Not Prime")
+else:
+    print("Not Prime")</pre></code>
+    <button class="copy-btn">Copy</button>
+  </div>
+
+  <!-- Question 16 -->
+  <div class="titl">File Operations</div>
+  <div class="copy-box" id="q16">
+    <code><pre># Create and write data into a file
+f = open("sample.txt", "w")
+f.write("Hello Python Students\n")
+f.write("File handling is easy\n")
+f.write("Practice makes perfect")
+f.close()
+
+# Open file in read mode
+f = open("sample.txt", "r")
+
+# f.tell() - shows current position of file pointer
+print("Position after opening:", f.tell())
+
+# f.read() - reads whole file
+content = f.read()
+print("Content of file:")
+print(content)
+
+print("Position after reading:", f.tell())
+
+# Counting occurrences using count() on the read string
+print("Count of 'e' in file:", content.count("e"))
+print("Count of 'Python' in file:", content.count("Python"))
+
+# f.seek() - moves file pointer to a position
+f.seek(0)                    # go back to start
+print("\nAfter seek(0), position is:", f.tell())
+print("First 5 characters:", f.read(5))
+
+f.seek(6)                    # move to 6th position
+print("\nAfter seek(6), position is:", f.tell())
+print("Next 6 characters:", f.read(6))
+
+# f.readline() - reads one line at a time
+f.seek(0)
+print("\nUsing readline():")
+print(f.readline(), end="")
+
+# f.readlines() - reads all lines into a list
+f.seek(0)
+lines = f.readlines()
+print("\nUsing readlines():")
+print(lines)
+print("Total number of lines:", len(lines))
+
+f.close()
+print("\nFile closed successfully")</pre></code>
+    <button class="copy-btn">Copy</button>
+  </div>
+
+  <!-- Photo Frame -->
+  <div class="photo-frame">
+    <img src="rahul-gandhi-winking-at-the-parliament.jpg" alt="Photo" loading="lazy">
     <span class="heart h1">❤</span>
     <span class="heart h2">❤</span>
     <span class="heart h3">❤</span>
-
-    <!-- Stars -->
     <span class="star s1">★</span>
     <span class="star s2">★</span>
     <span class="star s3">★</span>
-
-    <!-- Sparkles -->
     <span class="sparkle sp1">✦</span>
     <span class="sparkle sp2">✦</span>
     <span class="sparkle sp3">✦</span>
     <span class="sparkle sp4">✦</span>
-</div>
+  </div>
+
   <script src="main.js"></script>
 </body>
 </html>
